@@ -5,7 +5,7 @@ import (
 )
 
 func FirstWord(s string) string {
-	//sliced := []rune
+	// sliced := []rune
 	first := []rune{}
 
 	for _, i := range s {
