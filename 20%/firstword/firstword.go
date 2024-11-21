@@ -2,21 +2,16 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func FirstWord(s string) string {
-	// sliced := []rune
-	first := []rune{}
-
-	for _, i := range s {
-		if i != ' ' {
-			first = append(first, i)
-		} else {
-			break
-		}
+	words := strings.Fields(s)
+	res := "\n"
+	if len(words) > 0 {
+		res = words[0] + res
 	}
-
-	return string(first)
+	return res
 }
 
 func main() {
