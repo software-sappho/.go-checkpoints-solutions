@@ -23,7 +23,7 @@ To clone and use this repository, follow these steps:
 3. **Run solutions or test code:**
     Navigate to the relevant folder and run the Go code using:
     ```bash
-    go run main.go
+    go run .
     ```
 
 ## Usage
