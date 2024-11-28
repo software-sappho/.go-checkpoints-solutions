@@ -1,21 +1,24 @@
 package main
 
 import (
-	"fmt"
-	"strings"
+    "fmt"
 )
 
 func FirstWord(s string) string {
-	words := strings.Fields(s)
-	res := "\n"
-	if len(words) > 0 {
-		res = words[0] + res
-	}
-	return res
+    firstWord := ""
+    for i := 0; i < len(s); i++ {
+        if s[i] != ' ' { // Add non-space characters to firstWord
+            firstWord += string(s[i])
+        } else if firstWord != "" { // Stop adding when a space is found after starting the word
+            break
+        }
+    }
+    return firstWord + "\n"
 }
 
 func main() {
-	fmt.Println(FirstWord("hello there"))
-	fmt.Println(FirstWord(""))
-	fmt.Println(FirstWord("hello   .........  bye"))
+    fmt.Print(FirstWord("hello there"))
+    fmt.Print(FirstWord(""))
+    fmt.Print(FirstWord("hello   .........  bye"))
 }
+

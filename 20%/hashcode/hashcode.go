@@ -6,18 +6,17 @@ import (
 
 func HashCode(dec string) string {
 
-	size:=len(dec)
-	var hashed string
+	len :=len(dec)
+	var hex string
 
-	for _, i:=range(dec){
-		hash:=(int(i)+size)%127
-		if hash <32 || hash > 127{
-			hash+=33
+	for _, i:=range dec{
+		hexxed:=(int(i)+len)%127
+		if hexxed < 33 || hexxed >127{
+			hexxed += 33
 		}
-		hashed+=string(hash)
+		hex += string(hexxed)
 	}
-	
-	return hashed
+	return hex
 }
 
 
