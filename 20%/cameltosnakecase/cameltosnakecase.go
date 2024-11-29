@@ -36,8 +36,6 @@ func CamelToSnakeCase(s string) string {
 }
 
 
-
-
 func main() {
 	fmt.Println(CamelToSnakeCase("HelloWorld"))
 	fmt.Println(CamelToSnakeCase("helloWorld"))
