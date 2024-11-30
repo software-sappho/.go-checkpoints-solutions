@@ -6,24 +6,30 @@ import (
 )
 
 func main() {
-	if len(os.Args) > 2 {
+	if len(os.Args) > 2 || len(os.Args[1]) == 0 {
 		fmt.Print("\n")
 		return
-	} else {
-
-		args := os.Args[1:]
-		returned := ""
-
-		for i := 0; i < len(args[0]); i++ {
-
-			returned += string(args[0][i])
-
-			if i > 0 && args[0][i] == ' ' && args[0][i-1] == ' ' {
-				returned = returned[:len(returned)-1]
-			}
-
-		}
-
-		fmt.Println(returned)
 	}
+
+	input := os.Args[1]
+	var result string
+	inWord := false
+
+	for i := 0; i < len(input); i++ {
+		if input[i] == ' ' || input[i] == '\t' {
+			if inWord {
+				result += " "
+				inWord = false
+			}
+		} else {
+			result += string(input[i])
+			inWord = true
+		}
+	}
+
+	if len(result) > 0 && result[len(result)-1] == ' ' {
+		result = result[:len(result)-1]
+	}
+
+	fmt.Println(result)
 }
