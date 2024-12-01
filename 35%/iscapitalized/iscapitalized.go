@@ -5,16 +5,16 @@ import (
 )
 
 func IsCapitalized(s string) bool {
-	var ifi bool
-	for _, i := range s {
-		if (i == ' ') && !(i+1 >= 'A' || i+1 <= 'Z') {
-			ifi = true
-		} else {
-			ifi = false
-		}
+	if len(s) == 0 {
+		return false
 	}
 
-	return ifi
+	for i := 0; i < len(s); i++ {
+		if s[i] >= 'a' && s[i] <= 'z' && i != 0 && s[i-1] == ' ' {
+			return false
+		}
+	}
+	return !(s[0] >= 'a' && s[0] <= 'z')
 }
 
 func main() {
