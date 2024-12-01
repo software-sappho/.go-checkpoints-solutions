@@ -14,7 +14,6 @@ To clone and use this repository, follow these steps:
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/yourusername/zone01-.go-checkpoint-solutions.git
-    cd zone01-.go-checkpoint-solutions
     ```
 
 2. **Install Go if you haven't already:**
@@ -28,7 +27,7 @@ To clone and use this repository, follow these steps:
 
 ## Usage
 1. Browse through the checkpoint solutions categorized in subdirectories.
-2. Review the problem statement and corresponding solution file (usually named `main.go` or `solution.go`).
+2. Review the corresponding solution file (usually named `main.go` or `name_of_folder.go`).
 3. Run the code to see how it works and modify it for practice or learning.
 
 ## Folder Structure
