@@ -31,6 +31,5 @@ To clone and use this repository, follow these steps:
 3. Run the code to see how it works and modify it for practice or learning.
 
 ## Folder Structure
-to be edited
 
 
