@@ -22,11 +22,12 @@ func CamelToSnakeCase(s string) string {
 	if len(s) == 0 || !containOnlyAlphabet(s) {
 		return s
 	}
+
 	for i := 0; i < len(s); i++ {
-		if i != 0 && isUpper(rune(s[i])) && i+1 < len(s) && !isUpper(rune(s[i+1])) {
-			result += "_"
+		if !isUpper(rune(s[i])) || (i == 0 && isUpper(rune(s[i]))) {
 			result += string(s[i])
-		} else if !isUpper(rune(s[i])) || (i == 0 && isUpper(rune(s[i]))) {
+		} else if i != 0 && isUpper(rune(s[i])) && i+1 < len(s) && !isUpper(rune(s[i+1])) {
+			result += "_"
 			result += string(s[i])
 		} else {
 			return s
@@ -34,7 +35,6 @@ func CamelToSnakeCase(s string) string {
 	}
 	return result
 }
-
 
 func main() {
 	fmt.Println(CamelToSnakeCase("HelloWorld"))
