@@ -8,10 +8,8 @@ func ThirdTimeIsACharm(str string) string {
 
 	returned := ""
 
-	if len(str)==0{
-		return "\n"
-	}else if len(str)<3{
-		return "\n"
+	if len(str)==0 || len(str)<3{
+	 	return "\n"
 	}
 
 	for i:=1; i<len(str);i++{
