@@ -5,16 +5,12 @@ import (
 )
 
 func CheckNumber(arg string) bool {
-	var isnumber bool
-
 	for _, i := range arg {
-		if i == '1' || i == '2' || i == '3' || i == '4' || i == '5' || i == '6' || i == '7' || i == '8' || i == '9' || i == '0' {
-			isnumber = true
-		} else {
-			isnumber = false
+		if i >= '0' && i <= '9' {
+			return true
 		}
 	}
-	return isnumber
+	return false
 }
 
 func main() {
