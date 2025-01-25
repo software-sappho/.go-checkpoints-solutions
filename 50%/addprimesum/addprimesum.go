@@ -38,3 +38,5 @@ func main() {
     }
     fmt.Println(sum)
 }
+
+//check if works at actual checkpoint

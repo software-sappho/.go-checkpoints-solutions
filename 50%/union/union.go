@@ -26,3 +26,5 @@ func main() {
 	}
 	fmt.Println()
 }
+
+// check if works at actual checkpoint

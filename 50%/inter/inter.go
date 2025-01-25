@@ -23,3 +23,5 @@ func main() {
 		fmt.Println(result(os.Args[1], os.Args[2]))
 	}
 }
+
+// check if works at actual checkpoint
