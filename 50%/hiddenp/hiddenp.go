@@ -22,4 +22,42 @@ func main() {
 	fmt.Println("1")
 }
 
-// check if works at actual checkpoint
+// second solution
+
+/*
+
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	if len(os.Args) != 3 {
+		return
+	}
+
+	source := os.Args[1]
+	target := os.Args[2]
+	targetIndex := 0
+
+	for i := 0; i < len(source); i++ {
+		found := false
+		for j := targetIndex; j < len(target); j++ {
+			if source[i] == target[j] {
+				targetIndex = j + 1
+				found = true
+				break
+			}
+		}
+		if !found {
+			fmt.Println("0")
+			return
+		}
+	}
+	fmt.Println("1")
+}
+
+
+*/
