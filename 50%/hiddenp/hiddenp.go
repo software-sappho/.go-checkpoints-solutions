@@ -3,61 +3,26 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
-	var i int
+
 	if len(os.Args) != 3 {
 		return
 	}
-	for _, r := range os.Args[1] {
-		j := strings.Index(os.Args[2][i:], string(r))
-		if j == -1 {
-			fmt.Println("0")
-			return
+	s1 := os.Args[1]
+	s2 := os.Args[2]
+	i, j := 0, 0
+
+	for i < len(s1) && j < len(s2) {
+		if s1[i] == s2[j] {
+			i++
 		}
-		i += j + 1
+		j++
 	}
-	fmt.Println("1")
+	if i == len(s1) {
+		fmt.Println("1")
+	} else {
+		fmt.Println("0")
+	}
 }
-
-// second solution
-
-/*
-
-package main
-
-import (
-	"fmt"
-	"os"
-)
-
-func main() {
-	if len(os.Args) != 3 {
-		return
-	}
-
-	source := os.Args[1]
-	target := os.Args[2]
-	targetIndex := 0
-
-	for i := 0; i < len(source); i++ {
-		found := false
-		for j := targetIndex; j < len(target); j++ {
-			if source[i] == target[j] {
-				targetIndex = j + 1
-				found = true
-				break
-			}
-		}
-		if !found {
-			fmt.Println("0")
-			return
-		}
-	}
-	fmt.Println("1")
-}
-
-
-*/

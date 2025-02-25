@@ -11,18 +11,25 @@ func main() {
 	}
 
 	string1, string2 := os.Args[1], os.Args[2]
-	first, second := 0, 0
+	counter1, counter2 := 0, 0
 
 	// Loop through s2 to find s1 in order
-	for second < len(string2) {
-		if first < len(string1) && string1[first] == string2[second] {
-			first++
+	for counter2 < len(string2) {
+		if counter1 < len(string1) && string1[counter1] == string2[counter2] {
+			counter1++
 		}
-		second++
+		counter2++
 	}
 
 	// If we have matched all characters of s1 in s2, print s1
-	if first == len(string1) {
+	if counter1 == len(string1) {
 		fmt.Println(string1)
 	}
+	/*import "github.com/01-edu/z01" if fmt is not allowed
+	if counter1 == len(string1) {
+		for _, i := range string1 {
+			z01.PrintRune(i)
+		}
+	}
+	*/
 }
