@@ -5,27 +5,24 @@ import (
 	"os"
 )
 
-func ok(s1 string, s2 string) bool {
-	runes1 := []rune(s1)
-	runes2 := []rune(s2)
-	var rest string
-	count := 0
-	for i := 0; i < len(runes1); i++ {
-		for j := count; j < len(runes2); j++ {
-			if runes1[i] == runes2[j] {
-				rest += string(runes1[i])
-				j = len(runes2) - 1
-			}
-			count++
-		}
-	}
-	return s1 == rest
-}
-
 func main() {
-	if len(os.Args) == 3 {
-		if ok(os.Args[1], os.Args[2]) {
-			fmt.Println(os.Args[1])
+	if len(os.Args) != 3 {
+		return
+	}
+
+	string1, string2 := os.Args[1], os.Args[2]
+	first, second := 0, 0
+
+	// Loop through s2 to find s1 in order
+	for second < len(string2) {
+		if first < len(string1) && string1[first] == string2[second] {
+			first++
 		}
+		second++
+	}
+
+	// If we have matched all characters of s1 in s2, print s1
+	if first == len(string1) {
+		fmt.Println(string1)
 	}
 }

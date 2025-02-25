@@ -5,22 +5,20 @@ import (
 )
 
 func SaveAndMiss(arg string, num int) string {
-	if num <= 0 || num > len(arg) {
-		return string(arg)
+	if num <= 0 {
+		return arg
 	}
-	_str := ""
-	for i := 0; i < len(arg); i++ {
-		if i != 0 && i%num == 0 {
-			i += num
-			if i > len(arg)-1 {
-				break
-			}
+	result := ""
+	length := len(arg)
+	for i := 0; i < length; i += 2 * num {
+		// Save the next `num` characters
+		end := i + num
+		if end > length {
+			end = length
 		}
-		if i != len(arg) {
-			_str += string(rune(arg[i]))
-		}
+		result += arg[i:end]
 	}
-	return _str
+	return result
 }
 
 func main() {
