@@ -6,31 +6,46 @@ func FifthAndSkip(str string) string {
 	if str == "" {
 		return "\n"
 	}
-	if len(str) < 5 {
+
+	// Count real (non-space) characters
+	countNonSpace := 0
+	for _, ch := range str {
+		if ch != ' ' {
+			countNonSpace++
+		}
+	}
+
+	if countNonSpace < 5 {
 		return "Invalid Input\n"
 	}
 
-	// Remove spaces manually
-	var noSpaces []rune
-	for _, char := range str {
-		if char != ' ' {
-			noSpaces = append(noSpaces, char)
+	// Build a cleaned version without spaces
+	var clean []rune
+	for _, ch := range str {
+		if ch != ' ' {
+			clean = append(clean, ch)
 		}
 	}
 
-	// Build the result
 	var result []rune
-	count := 0
-	for _, char := range noSpaces {
-		if count == 5 {
-			result = append(result, ' ')
-			count = 0
-		}
-		result = append(result, char)
-		count++
+	i := 0
+	for i+5 <= len(clean) {
+		result = append(result, clean[i:i+5]...) // Add 5 characters
+		result = append(result, ' ')             // Add space
+		i += 6                                   // Skip 6th char
 	}
-	result = append(result, '\n')
 
+	// Add any remaining characters (less than 5 left, no skip needed)
+	for ; i < len(clean); i++ {
+		result = append(result, clean[i])
+	}
+
+	// Remove trailing space if it ends with space
+	if len(result) > 0 && result[len(result)-1] == ' ' {
+		result = result[:len(result)-1]
+	}
+
+	result = append(result, '\n')
 	return string(result)
 }
 
